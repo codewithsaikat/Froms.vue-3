@@ -1,26 +1,68 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <reviewList :reviews="reviews"></reviewList>
+  <reviewFrom @review-submitted="addReview"></reviewFrom>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import reviewFrom from "./components/reviewFrom.vue"
+import reviewList from "./components/reviewList.vue"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    reviewFrom,
+    reviewList
+  },
+  data() {
+    return {
+      reviews : []
+    }
+  },
+  methods: {
+    addReview(review) {
+      this.reviews.push(review)
+    }
   }
 }
 </script>
 
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    .review-form {
+  display: flex;
+  flex-direction: column;
+  width: 425px;
+  padding: 20px;
+  margin: 40px;
+  border: 2px solid #d8d8d8;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
+.review-form .button {
+  display: block;
+  margin: 30px auto;
+}
+textarea {
+  width: 95%;
+  height: 70px;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.review-container {
+  width: 425px;
+  padding: 20px;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 2px 20px -12px rgba(0, 0, 0, 0.57);
+  box-shadow: 2px 20px -12px rgba(0, 0, 0, 0.57);
+  margin-left: 40px;
+  border: 2px solid #d8d8d8;
+} 
+
+
+
 </style>
