@@ -27,7 +27,8 @@ export default {
             rating: null
         }
     },
-    onSubmit() {
+    methods: {
+        onSubmit() {
         let productReview = {
             name: this.name,
             review: this.review,
@@ -38,6 +39,9 @@ export default {
         this.name = ''
         this.review = ''
         this.rating = null
+    
+
+        }
     }
 }
 </script>

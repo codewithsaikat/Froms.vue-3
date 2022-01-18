@@ -1,18 +1,20 @@
 <template>
   <reviewList :reviews="reviews"></reviewList>
   <reviewFrom @review-submitted="addReview"></reviewFrom>
-  
+    
 </template>
 
 <script>
 
 import reviewFrom from "./components/reviewFrom.vue"
 import reviewList from "./components/reviewList.vue"
+ 
 export default {
   name: 'App',
   components: {
     reviewFrom,
-    reviewList
+    reviewList,
+   
   },
   data() {
     return {
@@ -61,6 +63,15 @@ textarea {
   box-shadow: 2px 20px -12px rgba(0, 0, 0, 0.57);
   margin-left: 40px;
   border: 2px solid #d8d8d8;
+}
+.review-container li {
+  margin-bottom: 30px;
+}
+select {
+  height: 40px;
+  font-size: 20px;
+  background-color: white;
+  cursor: pointer;
 } 
 
 
