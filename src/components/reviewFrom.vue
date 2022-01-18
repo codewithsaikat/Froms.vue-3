@@ -13,6 +13,12 @@
             <option>2</option>
             <option>1</option>        
         </select>
+        <label for="recommend">Would you recommend this product?</label>
+        <select id="recommend" v-model="recommend">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
         <input class="button" type="submit" value="submit"> 
     </form>
 </template>
@@ -24,21 +30,28 @@ export default {
         return{
             name: '',
             review: '',
-            rating: null
+            rating: null,
+            recommend: null
         }
     },
     methods: {
         onSubmit() {
+        if (this.name === '' || this.review === '' || this.rating === null) {
+            alert('Review is incomplete. please fill out every field ')
+            return
+        }
         let productReview = {
             name: this.name,
             review: this.review,
-            rating: this.rating
+            rating: this.rating,
+            recommend: this.recommend
 
         }
         this.$emit('review-submitted', productReview)
         this.name = ''
         this.review = ''
         this.rating = null
+        this.recommend = null
     
 
         }

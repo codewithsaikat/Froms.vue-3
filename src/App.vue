@@ -1,5 +1,5 @@
 <template>
-  <reviewList :reviews="reviews"></reviewList>
+  <reviewList  v-if="reviews.length" :reviews="reviews"></reviewList>
   <reviewFrom @review-submitted="addReview"></reviewFrom>
     
 </template>
